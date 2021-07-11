@@ -369,8 +369,8 @@ void test_tmc_connection(const bool test_x, const bool test_y, const bool test_z
 
     struct slow_homing_t {
       xy_ulong_t acceleration;
-      #if ENABLED(HAS_CLASSIC_JERK)
-        xy_float_t jerk_xy;
+      #if HAS_CLASSIC_JERK
+        xy_float_t jerk_state;
       #endif
     };
   #endif

@@ -372,8 +372,8 @@ void MarlinUI::clear_lcd() { } // Automatically cleared by Picture Loop
 
       pixel_len_t n = LCD_PIXEL_WIDTH; // pixel width of string allowed
 
-      const int8_t plen = pstr ? utf8_strlen_P(pstr) : 0,
-                   vlen = vstr ? utf8_strlen(vstr) : 0;
+      const int plen = pstr ? calculateWidth(pstr) : 0,
+                vlen = vstr ? utf8_strlen(vstr) : 0;
       if (style & SS_CENTER) {
         int8_t pad = (LCD_WIDTH - plen - vlen) / 2;
         while (--pad >= 0) n -= lcd_put_wchar(' ');
